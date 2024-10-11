@@ -32,10 +32,8 @@ jobs:
       contents: read
 
     steps:
-      - name: Post to Discord
-        if: ${{ github.event.inputs.publishtodiscord == 'true' }}
+      - name: Display structure of downloaded files
         run: |
-          ls -d
-          cd Discord
-          npm install
-          node .
+          echo hi1
+          ls -l
+          echo hi2
