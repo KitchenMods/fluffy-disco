@@ -22,7 +22,10 @@
 	
 	<ItemGroup>
 	  <PackageReference Include="HarmonyX" Version="2.9.0" />
-	  <PackageReference Include="ILRepack" Version="2.0.34" />
+	  <PackageReference Include="ILRepack.FullAuto" Version="1.6.0">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
 	  <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
 	  <PackageReference Include="Semver" Version="3.0.0-beta.1" />
 	  <PackageReference Include="Yariazen.PlateUp.ModBuildUtilities" Version="1.12.0" />
