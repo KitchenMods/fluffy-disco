@@ -3,8 +3,10 @@
     <!-- ILRepack -->
     <Target Name="ILRepacker" AfterTargets="Build" BeforeTargets="Deploy">
         <ItemGroup>
-            <InputAssemblies Include="$(OutputPath)\KitchenLib-Workshop.dll" />
+            <InputAssemblies Include="$(OutputPath)\$(AssemblyName).dll" />
+            <InputAssemblies Include="$(OutputPath)\IndexRange.dll" />
             <InputAssemblies Include="$(OutputPath)\Semver.dll" />
+            <InputAssemblies Include="$(OutputPath)\Microsoft.Extensions.Primitives.dll" />
         </ItemGroup>
 
         <ItemGroup>
@@ -21,5 +23,4 @@
                 LibraryPath="@(LibraryPath)"
         />
     </Target>
-    <!-- /ILRepack -->
 </Project>
