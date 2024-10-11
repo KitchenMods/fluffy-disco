@@ -35,5 +35,5 @@ jobs:
       - name: Post to Discord
         if: ${{ github.event.inputs.publishtodiscord == 'true' }}
         run: |
-          pipx install discordwebhook
+          python -m pip install discordwebhook
           python discord.py
