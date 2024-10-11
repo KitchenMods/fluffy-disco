@@ -26,20 +26,20 @@ namespace KitchenLib.UI
 			MethodInfo New = ReflectionUtils.GetMethod<StartMainMenu>("New").MakeGenericMethod(typeof(SpacerElement));
 			MethodInfo AddSubmenuButton = ReflectionUtils.GetMethod<StartMainMenu>("AddSubmenuButton");
 			
-			New.Invoke(instance, new object[]{true});
-			AddSubmenuButton.Invoke(instance, new object[]{"Mods", typeof(ModsMenu), false});
+			New.Invoke(instance, [true]);
+			AddSubmenuButton.Invoke(instance, ["Mods", typeof(ModsMenu), false]);
 			if (!Main.manager.GetPreference<PreferenceBool>("mergeWithPreferenceSystem").Value && Main.preferenceSystemMenuType != null || Main.preferenceSystemMenuType == null)
 			{
 				if (PreferenceManager.Managers.Count > 0)
 				{
 					//AddSubmenuButton.Invoke(instance, ["Mod Preferences", typeof(ModsPreferencesMenu<MenuAction>), false]);
-					AddSubmenuButton.Invoke(instance, new object[]{"Mod Preferences", typeof(MainMenuPreferencesesMenu), false});
+					AddSubmenuButton.Invoke(instance, ["Mod Preferences", typeof(MainMenuPreferencesesMenu), false]);
 				}
 			}
 
 			if (AchievementsManager.Managers.Count > 0)
 			{
-				AddSubmenuButton.Invoke(instance, new object[]{"Mod Achievements", typeof(ModAchievementsMenu), false});
+				AddSubmenuButton.Invoke(instance, ["Mod Achievements", typeof(ModAchievementsMenu), false]);
 			}
 		}
 	}

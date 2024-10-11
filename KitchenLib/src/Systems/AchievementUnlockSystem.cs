@@ -31,9 +31,9 @@ namespace KitchenLib.Systems
 
 		public void UnlockAchievement(string modid, string key)
 		{
-			Entity entity = EntityManager.CreateEntity(
+			Entity entity = EntityManager.CreateEntity([
 				typeof(CPosition)
-			);
+			]);
 			EntityManager.AddComponentData(entity, new CRequiresView
 			{
 				Type = (ViewType)VariousUtils.GetID("KitchenLib.Views.ModAchievementDistributionView")
