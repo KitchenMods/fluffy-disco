@@ -17,7 +17,7 @@ namespace KitchenLib.UI
 
 			if (Main.MOD_BETA_VERSION != "")
 			{
-				AddLabel.Invoke(instance, new object[]{"!! KITCHENLIB BETA !!"});
+				AddLabel.Invoke(instance, ["!! KITCHENLIB BETA !!"]);
 			}
 		}
 

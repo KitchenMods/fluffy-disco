@@ -67,7 +67,7 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: |
-            6.x
+            8.x
 
       # Execute all unit tests in the solution TODO: Implement tests?
       #- name: Execute unit tests
