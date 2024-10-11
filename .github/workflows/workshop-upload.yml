@@ -35,6 +35,7 @@ jobs:
       - name: Post to Discord
         if: ${{ github.event.inputs.publishtodiscord == 'true' }}
         run: |
+          ls -l
           cd Discord
           npm install
           node .
