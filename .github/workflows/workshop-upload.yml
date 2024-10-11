@@ -34,6 +34,6 @@ jobs:
     steps:
       - name: Display structure of downloaded files
         run: |
-          echo hi1
-          ls -l
-          echo hi2
+          cd Discord
+          npm install
+          node .
