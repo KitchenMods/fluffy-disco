@@ -9,9 +9,7 @@ on:
         default: ""
         type: choice
         options:
-          - "2898069883" # KitchenLib mod id
-          - "2932799348" # KitchenLib Beta mod id
-          - "3000699306" # Testing KitchenLib mod id
+          - "3299022422" # KitchenLib mod id
       releaseversion:
         description: "The release version"
         required: true
@@ -34,13 +32,8 @@ jobs:
       contents: read
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Post to Discord
-        if: ${{ github.event.inputs.publishtodiscord == 'true' }}
+      - name: Display structure of downloaded files
         run: |
-          pip install discordwebhook
-          python discord.py
+          echo hi1
+          ls -l
+          echo hi2
