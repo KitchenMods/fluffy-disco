@@ -1,9 +1,9 @@
 const { Webhook } = require('discord-webhook-node');
-const hook = new Webhook("https://discord.com/api/webhooks/1270786942350524509/Pt6B41jSv9EewQqPbJMOYQR9-UHvQvYeXDG8uwAYGITaIbpTt4PXWBHNLpwiNaimk83G");
 const fs = require('node:fs');
 
 let ChangelogVer = "";
 let ChangelogBetaVer = "";
+let DiscordURL = "";
 
 if (process.env.CHANGELOGVER) {
     ChangelogVer = process.env.CHANGELOGVER;
@@ -12,6 +12,12 @@ if (process.env.CHANGELOGVER) {
 if (process.env.CHANGELOGBETA) {
     ChangelogBetaVer = process.env.CHANGELOGBETA;
 }
+
+if (process.env.DISCORDURL) {
+    DiscordURL = process.env.DISCORDURL;
+}
+
+const hook = new Webhook(DiscordURL);
 
 const changelogpath = '../KitchenLib/Changelogs/' + ChangelogVer + '/Github/v' + ChangelogVer + ChangelogBetaVer + '.MD';
 
