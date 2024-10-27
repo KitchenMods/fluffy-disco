@@ -9,9 +9,7 @@ on:
         default: ""
         type: choice
         options:
-          - "2898069883" # KitchenLib mod id
-          - "2932799348" # KitchenLib Beta mod id
-          - "3000699306" # Testing KitchenLib mod id
+          - "3300192590" # KitchenLib mod id
       releaseversion:
         description: "The release version"
         required: true
