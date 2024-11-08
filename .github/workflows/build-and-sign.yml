@@ -71,7 +71,6 @@ jobs:
           sha256sum ./content/* > ./content/checksums.txt
           ls ./content/
 
-      # Upload the build artifacts for later use
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
