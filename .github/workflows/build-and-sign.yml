@@ -96,6 +96,11 @@ jobs:
           name: KitchenLib-Build
           path: build
 
+      - name: Display structure of downloaded files
+        run: |
+          cd build
+          zip -r KitchenLib-Build.zip *
+
       - name: Upload Release Files
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
