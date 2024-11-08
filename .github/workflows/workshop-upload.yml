@@ -56,7 +56,3 @@ jobs:
           preRelease: true
           tag: "v${{ github.event.inputs.releaseversion }}${{ github.event.inputs.betaversion }}"
           fileName: "KitchenLib-v${{ github.event.inputs.releaseversion }}${{ github.event.inputs.betaversion }}.zip"
-
-      - name: List Directory Contents
-        run: |
-          ls -l
