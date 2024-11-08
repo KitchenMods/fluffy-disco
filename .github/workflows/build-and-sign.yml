@@ -58,5 +58,23 @@ jobs:
           cp ./bin/Workshop/net472/windows-x64/KitchenLib-Workshop.dll ./content/
           cp ./bin/Workshop/net472/windows-x64/KitchenLib-Workshop.pdb ./content/
           cp ./bin/Workshop/net472/KitchenLib-Workshop.xml ./content/
-          cd content
-          ls -l
+
+      - name: cosign-installer
+        uses: sigstore/cosign-installer@v3.3.0
+
+      - name: Sign with Github Key
+        run: |
+          cosign sign-blob --yes ./content/KitchenLib-Workshop.dll --bundle ./content/cosign.bundle
+
+      - name: Perform Hashes
+        run: |
+          sha256sum ./content/* > ./content/checksums.txt
+          ls ./content/
+
+      # Upload the build artifacts for later use
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: KitchenLib-Build
+          path: content/
+          if-no-files-found: error
