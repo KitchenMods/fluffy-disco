@@ -77,3 +77,26 @@ jobs:
           name: KitchenLib-Build
           path: content/
           if-no-files-found: error
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+        with:
+          tag_name: v${{ github.event.inputs.releaseversion }}${{ github.event.inputs.betaversion }}
+          release_name: v${{ github.event.inputs.releaseversion }}${{ github.event.inputs.betaversion }}
+          body_path: ./Changelogs/${{ github.event.inputs.releaseversion }}/Github/v${{ github.event.inputs.releaseversion }}${{ github.event.inputs.betaversion }}.MD
+          draft: false
+          prerelease: ${{ !(github.event.inputs.betaversion == '') }}
+
+      - name: Upload Release Files
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: build/KitchenLib-Build.zip
+          asset_name: KitchenLib-v${{ github.event.inputs.releaseversion }}${{ github.event.inputs.betaversion }}}.zip
+          asset_content_type: application/zip
