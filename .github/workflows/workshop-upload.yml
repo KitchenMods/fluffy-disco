@@ -60,3 +60,4 @@ jobs:
       - name: Unzip Release
         run: |
           unzip KitchenLib-v${{ github.event.inputs.releaseversion }}${{ github.event.inputs.betaversion }}.zip
+          ls -l
