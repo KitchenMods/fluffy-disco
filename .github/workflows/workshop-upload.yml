@@ -59,5 +59,6 @@ jobs:
 
       - name: Unzip Release
         run: |
-          unzip KitchenLib-v${{ github.event.inputs.releaseversion }}${{ github.event.inputs.betaversion }}.zip
+          unzip KitchenLib-v${{ github.event.inputs.releaseversion }}${{ github.event.inputs.betaversion }}.zip -d Release
+          cd Release
           ls -l
