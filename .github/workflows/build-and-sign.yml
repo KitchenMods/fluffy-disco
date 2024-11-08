@@ -56,7 +56,7 @@ jobs:
           dotnet build -c Workshop -p:GamePath=`ls -d $PWD/depots/1599601/**`/PlateUp -p:EnableModDeployLocal='false' -p:EnableGameDebugging='false' --os windows --no-self-contained ./KitchenLib.csproj
           mkdir ./content/
           cp ./bin/Workshop/net472/windows-x64/KitchenLib-Workshop.dll ./content/
+          cp ./bin/Workshop/net472/windows-x64/KitchenLib-Workshop.pdb ./content/
           cp ./bin/Workshop/net472/KitchenLib-Workshop.xml ./content/
-          cp ./bin/Workshop/net472/KitchenLib-Workshop.pdb ./content/
           cd content
           ls -l
