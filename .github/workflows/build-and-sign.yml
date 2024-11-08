@@ -57,5 +57,6 @@ jobs:
           mkdir ./content/
           cp ./bin/Workshop/net472/windows-x64/KitchenLib-Workshop.dll ./content/
           cp ./bin/Workshop/net472/KitchenLib-Workshop.xml ./content/
+          cp ./bin/Workshop/net472/KitchenLib-Workshop.pdb ./content/
           cd content
           ls -l
