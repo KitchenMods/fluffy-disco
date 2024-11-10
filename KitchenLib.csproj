@@ -64,5 +64,7 @@
 	<ItemGroup>
 		<Compile Remove="UnityProject - KitchenLib\**" />
 		<None Remove="UnityProject - KitchenLib\**" />
+		<Compile Remove="Discord\**" />
+		<None Remove="Discord\**" />
 	</ItemGroup>
 </Project>

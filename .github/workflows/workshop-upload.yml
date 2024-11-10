@@ -99,7 +99,7 @@ jobs:
           CHANGELOGBETA: ${{ github.event.inputs.betaversion }}
 
       - name: Upload to steam workshop
-        if: ${{ github.event.inputs.publishtosteam == 'true' }} && ${{ inputs.itemid != '2898069883' }}
+        if: ${{ github.event.inputs.publishtosteam == 'true' && inputs.itemid != '2898069883'}}
         run: |
           ./upload.sh
         env:
@@ -111,3 +111,15 @@ jobs:
           STEAM_CODE: ${{ steps.generate-code.outputs.code }}
           CHANGELOGVER: ${{ github.event.inputs.releaseversion }}
           CHANGELOGBETA: ${{ github.event.inputs.betaversion }}
+
+      - name: Post to Discord
+        if: ${{ github.event.inputs.publishtodiscord == 'true' }}
+        run: |
+          cd Discord
+          npm install
+          node .
+        env:
+          INPUT_PATH: "build" # Path to your mod's folder from repository root
+          CHANGELOGVER: ${{ github.event.inputs.releaseversion }}
+          CHANGELOGBETA: ${{ github.event.inputs.betaversion }}
+          DISCORDURL: "${{ secrets.DISCORD_WEBHOOK }}"
