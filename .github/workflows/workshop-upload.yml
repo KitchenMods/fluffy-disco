@@ -85,7 +85,21 @@ jobs:
           write-mode: overwrite
 
       - name: Upload to steam workshop
-        if: ${{ github.event.inputs.publishtosteam == 'true' }}
+        if: ${{ github.event.inputs.publishtosteam == 'true' }} && ${{ inputs.itemid == '2932799348' }} && ${{ github.event.inputs.plateupsignature != '' }}
+        run: |
+          ./upload.sh
+        env:
+          INPUT_APPID: 1599600 # Game's Steam App ID (PlateUp)
+          INPUT_ITEMID: ${{ inputs.itemid }} # Your mod's Steam Workshop ID
+          INPUT_PATH: "Release" # Path to your mod's folder from repository root
+          STEAM_USERNAME: "${{ secrets.STEAM_USERNAME }}" # Your Steam username
+          STEAM_PASSWORD: "${{ secrets.STEAM_PASSWORD }}" # Your Steam password
+          STEAM_CODE: ${{ steps.generate-code.outputs.code }}
+          CHANGELOGVER: ${{ github.event.inputs.releaseversion }}
+          CHANGELOGBETA: ${{ github.event.inputs.betaversion }}
+
+      - name: Upload to steam workshop
+        if: ${{ github.event.inputs.publishtosteam == 'true' }} && ${{ inputs.itemid != '2898069883' }}
         run: |
           ./upload.sh
         env:
