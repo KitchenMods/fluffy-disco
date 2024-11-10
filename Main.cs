@@ -22,7 +22,7 @@ using KitchenLogger = KitchenLib.Logging.KitchenLogger;
 namespace KitchenLib
 {
 	/// <summary>
-	/// The main class of the KitchenLib mod.
+	/// The main class of the KitchenLib mod.qefqef
 	/// </summary>
 	public class Main : BaseMod
 	{
