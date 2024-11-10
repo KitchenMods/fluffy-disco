@@ -11,6 +11,7 @@ on:
         options:
           - "2898069883" # KitchenLib mod id
           - "2932799348" # KitchenLib Beta mod id
+          - "3300192590" # Private Testing Mod
       releaseversion:
         description: "The release version"
         required: true
@@ -62,3 +63,37 @@ jobs:
           unzip KitchenLib-v${{ github.event.inputs.releaseversion }}${{ github.event.inputs.betaversion }}.zip -d Release
           cd Release
           ls -l
+
+      - name: Setup steamcmd
+        if: ${{ github.event.inputs.publishtosteam == 'true' }}
+        uses: CyberAndrii/setup-steamcmd@b786e0da44db3d817e66fa3910a9560cb28c9323
+
+      - name: Generate auth code
+        if: ${{ github.event.inputs.publishtosteam == 'true' }}
+        id: generate-code
+        uses: CyberAndrii/steam-totp@c7f636bc64e77f1b901e0420b7890813141508ee
+        with:
+          shared_secret: ${{ secrets.STEAM_SHARED_SECRET }}
+
+      - name: Create Signature File
+        if: ${{ github.event.inputs.plateupsignature != '' }}
+        id: plateup-signatgure
+        uses: DamianReeves/write-file-action@master
+        with:
+          path: ./build/signature.txt
+          contents: ${{ github.event.inputs.plateupsignature }}
+          write-mode: overwrite
+
+      - name: Upload to steam workshop
+        if: ${{ github.event.inputs.publishtosteam == 'true' }}
+        run: |
+          ./upload.sh
+        env:
+          INPUT_APPID: 1599600 # Game's Steam App ID (PlateUp)
+          INPUT_ITEMID: ${{ inputs.itemid }} # Your mod's Steam Workshop ID
+          INPUT_PATH: "build" # Path to your mod's folder from repository root
+          STEAM_USERNAME: "${{ secrets.STEAM_USERNAME }}" # Your Steam username
+          STEAM_PASSWORD: "${{ secrets.STEAM_PASSWORD }}" # Your Steam password
+          STEAM_CODE: ${{ steps.generate-code.outputs.code }}
+          CHANGELOGVER: ${{ github.event.inputs.releaseversion }}
+          CHANGELOGBETA: ${{ github.event.inputs.betaversion }}
