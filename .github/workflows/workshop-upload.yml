@@ -119,7 +119,6 @@ jobs:
           npm install
           node .
         env:
-          INPUT_PATH: "build" # Path to your mod's folder from repository root
           CHANGELOGVER: ${{ github.event.inputs.releaseversion }}
           CHANGELOGBETA: ${{ github.event.inputs.betaversion }}
           DISCORDURL: "${{ secrets.DISCORD_WEBHOOK }}"
