@@ -29,7 +29,7 @@ namespace KitchenLib
 		/// <summary>
 		/// The ID of the mod.
 		/// </summary>
-		internal const striqefqefqng MOD_ID = "kitchenlib";
+		internal const string MOD_ID = "kitchenlib";
 
 		/// <summary>
 		/// The name of the mod.
