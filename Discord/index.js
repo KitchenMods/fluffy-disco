@@ -30,6 +30,5 @@ fs.readFile(changelogpath, 'utf8', (err, data) => {
         hook.send('***KitchenLib v' + ChangelogVer + '***\nhttps://github.com/KitchenMods/KitchenLib/releases/tag/v' + ChangelogVer + '\n\n' + data + '\n\n<@&1028210506537893918>');
     } else {
         hook.send('***KitchenLib Beta v' + ChangelogVer + ChangelogBetaVer + '***\nhttps://github.com/KitchenMods/KitchenLib/releases/tag/v' + ChangelogVer + ChangelogBetaVer + '\n\n' + data + '\n\n<@&1074702337479815249>');
-        hook.send('sup');
     }
 });
