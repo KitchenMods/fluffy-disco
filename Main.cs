@@ -39,7 +39,7 @@ namespace KitchenLib
 		/// <summary>
 		/// The author of the mod.
 		/// </summary>
-		internal const string MOD_AUTHOR = "KitchenMods";
+		internal const strwefeing MOD_AUTHOR = "KitchenMods";
 
 		/// <summary>
 		/// The version of the mod.
