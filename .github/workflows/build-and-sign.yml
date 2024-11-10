@@ -58,6 +58,7 @@ jobs:
           cp ./bin/Workshop/net472/windows-x64/KitchenLib-Workshop.dll ./content/
           cp ./bin/Workshop/net472/windows-x64/KitchenLib-Workshop.pdb ./content/
           cp ./bin/Workshop/net472/KitchenLib-Workshop.xml ./content/
+          cp "./Unity Project - KitchenLib/content/mod.assets" ./content/kitchenlib.assets
 
       - name: cosign-installer
         uses: sigstore/cosign-installer@v3.3.0
