@@ -22,14 +22,14 @@ using KitchenLogger = KitchenLib.Logging.KitchenLogger;
 namespace KitchenLib
 {
 	/// <summary>
-	/// The main class of the KitchenLib mod.qefqef
+	/// The main class of the KitchenLib mod
 	/// </summary>
 	public class Main : BaseMod
 	{
 		/// <summary>
 		/// The ID of the mod.
 		/// </summary>
-		internal const string MOD_ID = "kitchenlib";
+		internal const striqefqefqng MOD_ID = "kitchenlib";
 
 		/// <summary>
 		/// The name of the mod.
