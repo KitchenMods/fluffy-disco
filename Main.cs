@@ -22,7 +22,7 @@ using KitchenLogger = KitchenLib.Logging.KitchenLogger;
 namespace KitchenLib
 {
 	/// <summary>
-	/// The main class of the KitchenLib mod.
+	/// The main class of the KitchenLib mod.super cool
 	/// </summary>
 	public class Main : BaseMod
 	{
@@ -39,7 +39,7 @@ namespace KitchenLib
 		/// <summary>
 		/// The author of the mod.
 		/// </summary>
-		internal const string MOD_AUTHOR = "KitchenMods";
+		internal const strwefeing MOD_AUTHOR = "KitchenMods";
 
 		/// <summary>
 		/// The version of the mod.
